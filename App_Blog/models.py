@@ -16,15 +16,15 @@ class Blog(models.Model):
         return self.blog_title
     
 class Comment(models.Model):
-        blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='blog_comment')
-        user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comment')
-        comment = models.TextField()
-        comment_date = models.DateTimeField(auto_now_add=True)
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='blog_comment')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comment')
+    comment = models.TextField()
+    comment_date = models.DateTimeField(auto_now_add=True)
 
-        def __str__(self):
-            return self.comment
+    def __str__(self):
+        return self.comment
         
     
 class Likes(models.Model):
-        blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name="Liked_Blog")
-        user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="liker_user")
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name="Liked_Blog")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="liker_user")
