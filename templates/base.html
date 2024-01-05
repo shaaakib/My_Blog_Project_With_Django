@@ -14,9 +14,18 @@
             <div class="navbar-nav">
               <a class="nav-link active text-light fs-3" aria-current="page" href="{% url 'index' %}">Home</a>
             </div>
+            {% if user.is_authenticated %}
+            <div class="navbar-nav">
+              <a class="nav-link active text-light fs-3" aria-current="page" href="{% url 'App_Login:logout' %}">Logout</a>
+            </div>
+            {% else %}
             <div class="navbar-nav">
               <a class="nav-link active text-light fs-3" aria-current="page" href="{% url 'App_Login:signup' %}">Sign Up</a>
             </div>
+            <div class="navbar-nav">
+              <a class="nav-link active text-light fs-3" aria-current="page" href="{% url 'App_Login:login' %}">Login</a>
+            </div>
+            {% endif %}
           </div>
         </div>
       </nav>
